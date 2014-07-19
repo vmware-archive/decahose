@@ -133,7 +133,6 @@ create or replace function twitter.gnip_json_parse(jsonblob text)
 		from twitter.decahose_rawjson_ext
 		limit 1000
 	)q
-	where cols is not null
 	limit 10;
 
 ----------------------------------------------------------------------------------------
