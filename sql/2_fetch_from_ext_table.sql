@@ -14,7 +14,7 @@
 	(
 		tweet_json text
 	) 
-	LOCATION ('pxf://hdm1.gphd.local:50070/user/vatsan/decahose/*/*/*/*?profile=HdfsTextSimple')
+	LOCATION ('pxf://hdm1.gphd.local:50070/user/vatsan/decahose/{YEAR}/{MONTH}/{DAY}/*?profile=HdfsTextSimple')
 	FORMAT 'TEXT' (ESCAPE 'OFF');
 	
 ----------------------------------------------------------------------------------------
@@ -27,8 +27,6 @@
 	(
 		select twitter.gnip_json_parse(tweet_json) as cols
 		from twitter.decahose_rawjson_ext
-		limit 10
-	)q
-	limit 10;	
+	)q;
 	
 ----------------------------------------------------------------------------------------	

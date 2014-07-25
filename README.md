@@ -36,9 +36,21 @@ Viewing Stream Data on HDFS
 The contents of the stream will be written out to HDFS at /user/vatsan/decahose.
 The folder hierarchy will be of the form YYYY/MM/DD
 
-Parse JSON
-==========
-parsetweetjson.sql shows how the JSON blobs can be extracted from HDFS using PXF and parsed via PL/Python
+Starting the HAWQ-PXF-PL/Python JSON parsing Pipeline
+======================================================
+
+There are two sql files, one python file and a cron job that set-up this pipeline.
+1. First set-up your .pgpass file under $HOME/.pgpass. It should be of the form: hostname:port:database:username:password
+2. The very first time you set-up your environment, you should run the sql file $DECAHOSE_HOME/sql/1_parsetweetjson.sql
+3. Next, set-up a cron jon to run daily. Run crontab -e and add a line like so:
+
+```
+0 0 * * * python $DECAHOSE_HOME/python/decahose_load_cron.py $DECAHOSE_HOME/sql/2_fetch_from_ext_table.sql hdm2 decahose vatsan $HOME/logs/decahose_cron.log
+```
+
+This basically runs the sql file $DECAHOSE_HOME/sql/2_fetch_from_ext_table.sql through the python wrapper $DECAHOSE_HOME/python/decahose_load_cron.py
+at midnight, every day.
+
 
 Authors
 ========
