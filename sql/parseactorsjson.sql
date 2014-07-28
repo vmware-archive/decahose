@@ -17,8 +17,7 @@ create table twitter.actors
     (
         preferredUsername text,
         displayName text,
-        links_href text,
-        links_rel text,
+        links text,
         twitterTimeZone text,
         image text,
         verified boolean,
@@ -49,8 +48,7 @@ create type twitter.gnip_actor_columns
     (
         preferredUsername text,
         displayName text,
-        links_href text,
-        links_rel text,
+        links text,
         twitterTimeZone text,
         image text,
         verified boolean,
@@ -93,8 +91,7 @@ def flatten(d, parent_key='', sep='_'):
 keys = [
     'actor_preferredUsername',
     'actor_displayName',
-    'actor_links_href',
-    'actor_links_rel',
+    'actor_links',
     'actor_twitterTimeZone',
     'actor_image',
     'actor_verified',
@@ -120,11 +117,8 @@ try:
 except ValueError:
     jobj = None
 result = []
-plpy.notice(jsonblob_cleaned)
-plpy.notice(jobj)
 for k in keys:
     result.append(jobj[k] if jobj and k in jobj else None)
-plpy.notice(result)
 return result
     $$ language plpythonu;
 
