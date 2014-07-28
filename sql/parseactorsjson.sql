@@ -175,25 +175,22 @@ def flatten(d, parent_key='', sep='_'):
 -- 5) Invoke PL/Python function to parse the JSON from the tweets table
     ----------------------------------------------------------------------------------------
 
-insert into twitter.tweets
+insert into twitter.actors
 select (cols).*
 from
     (
-    select twitter.gnip_json_parse(tweet_json) as cols
+    select twitter.gnip_json_parse_actors(tweet_json) as cols
     from twitter.decahose_rawjson_ext
         limit 1000
         )q
-    limit 10;
+    limit 1000;
 
     ----------------------------------------------------------------------------------------
 -- 6) Show some parsed data as columns
     ----------------------------------------------------------------------------------------
 
-select postedtime,
-    id,
-    body,
-    retweetcount
-from twitter.tweets
+select *
+from twitter.actors
     limit 10;
 
     ----------------------------------------------------------------------------------------
