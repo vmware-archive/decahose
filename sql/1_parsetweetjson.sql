@@ -27,7 +27,33 @@
 		postedTime timestamp with time zone,
 		id text,
 		objectType text
-	) distributed by (postedTime);
+	        ) distributed by (postedTime);
+
+        drop table if exists twitter.actors cascade;
+        create table twitter.actors
+            (
+                preferredUsername text,
+                displayName text,
+                links text,
+                twitterTimeZone text,
+                image text,
+                verified boolean,
+                location_displayName text,
+                location_objectType text,
+                statusesCount int,
+                summary text,
+                languages text,
+                utcOffset int,
+                link text,
+                followersCount int,
+                favoritesCount int,
+                friendsCount int,
+                listedCount int,
+                postedTime timestamp with time zone,
+                id text,
+                objectType text
+                )
+            distributed by (id);
 
 ----------------------------------------------------------------------------------------
 -- 2) Define User Defined Composite Type to hold result of parsed JSON
