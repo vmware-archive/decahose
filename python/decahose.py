@@ -1,7 +1,7 @@
 '''
 	Original code to connect to a GNIP Stream, by Dr. Skippy.
-        Major overhauling by Srivatsan Ramanujam <sramanujam@gopivotal.com>
-        July-2014
+    Major overhauling by Srivatsan Ramanujam <sramanujam@gopivotal.com>
+    July-2014
 '''
 import urllib2,socket
 import base64
