@@ -1,6 +1,6 @@
 '''
    Read yesterday's dump of tweets from HDFS, parse the relevant fields and insert it into the tweets table
-   Maintained by Srivatsan Ramanujam <sramanujam@gopivotal.com>, Ronert Obst<robst@gopivotal.com>
+   Maintained by Srivatsan Ramanujam <sramanujam@pivotal.io>, Ronert Obst<robst@pivotal.io>
    Note:
    =====
    You should have saved your password in ~/.pgpass which should be of the following:
