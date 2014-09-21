@@ -37,3 +37,4 @@ docs/_build/
 sql/format.py
 sql/output.json
 sql/payload.json
+sql/pxf.sql
