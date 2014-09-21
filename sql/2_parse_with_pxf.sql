@@ -47,7 +47,7 @@ create external table twitter.decahose_pxf
 	"actor.id" text,
 	"actor.objectType" text			
         )
-    LOCATION ('pxf://hdm1.gphd.local:50070/user/vatsan/decahose/YEAR/MONTH/DAY/*.txt?PROFILE=JSON')
+    LOCATION ('pxf://hdm1.gphd.local:50070/user/vatsan/decahose/{YEAR}/{MONTH}/{DAY}/*.txt?PROFILE=JSON')
     FORMAT 'CUSTOM'  (FORMATTER='pxfwritable_import');
 
 ----------------------------------------------------------------------------------------

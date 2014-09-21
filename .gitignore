@@ -38,3 +38,4 @@ sql/format.py
 sql/output.json
 sql/payload.json
 sql/pxf.sql
+python/load_history.py
